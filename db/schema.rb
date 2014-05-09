@@ -29,8 +29,9 @@ ActiveRecord::Schema.define(version: 20140508095845) do
 
   create_table "lessons", force: true do |t|
     t.string   "category_id"
-    t.string   "integer"
+    t.string   "result"
     t.string   "user_id"
+    t.integer  "number_questions"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -46,7 +47,7 @@ ActiveRecord::Schema.define(version: 20140508095845) do
   create_table "results", force: true do |t|
     t.integer  "lesson_id"
     t.integer  "word_id"
-    t.integer  "choosen"
+    t.integer  "option_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

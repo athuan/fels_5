@@ -1,7 +1,7 @@
 class Word < ActiveRecord::Base
   belongs_to :category
   has_many :results
-  has_many :lesson_word
+  has_many :lesson_words
   has_many :lessions, through: :results
   validates :category_id, presence: true
   has_many :options, dependent: :destroy

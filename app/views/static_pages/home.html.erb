@@ -1,14 +1,17 @@
 <% if signed_in?%>
   <div class="row">
-    <aside class="span4">
+    <aside class="span2">
       <session>
         <%= render 'shared/user_info' %>
       </session>
     </aside>
 
-    <div class="span8">
+    <div class="span10">
       <%= link_to "Words", words_path, class: "btn btn-large btn-primary"%>
       <%= link_to "Lesson", categories_path, class: "btn btn-large btn-primary"%>
+    </div>
+    <div class="span10" offset3>
+      <%= render "shared/activity"%>
     </div>
   </div>
 <% else %>

@@ -1,0 +1,14 @@
+<div class="8" offset6>
+  <h3>Activity</h3>
+  <% current_user.activities.each do |activity| %>
+    <li>
+    Learned <%= activity.lesson.number_questions %> words  
+    in <%= activity.lesson.category.name %>
+    <% if activity.finished_at.nil? %>
+      - Start at: <%= link_to activity.created_at, lesson_path(activity.lesson.id) %>
+    <% else %>
+      - Finish at: <%= link_to activity.finished_at, lesson_path(activity.lesson.id) %>
+    <% end %>
+    </li>
+  <% end %>
+</div>

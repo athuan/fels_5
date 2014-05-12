@@ -54,6 +54,6 @@ class Admin::WordsController < ApplicationController
 
   private
     def word_params
-      params.require(:word).permit(:word, :meaning, :category_id, options_attributes: [:id, :word_id, :answer, :is_correct])
+      params.require(:word).permit(:name, :description, :category_id, options_attributes: [:id, :word_id, :answer, :is_correct])
     end  
 end

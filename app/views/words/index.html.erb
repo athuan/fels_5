@@ -1,15 +1,11 @@
-<% provide(:title, 'All words') %>
+<% provide(:title, 'All Words') %>
 <h1>All Words</h1>
-<%= will_paginate %>	
 
-<ul class="words">
-  <% @words.each do |word| %>
-    <li>
-      <%= link_to word.name, word %>
-      <%= word.description%>
-    </li>
-
-  <% end %>
-</ul>
-
-<%= will_paginate %>	
+<div id="search">
+  <%= render :partial => 'words/search' %>
+</div>
+  <ul class="words">
+    <% @words.each do |word| %>
+      <%= render word %>
+    <% end %>
+  </ul>

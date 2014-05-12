@@ -3,10 +3,12 @@ class LessonsController < ApplicationController
 
   def show
     @lesson = Lesson.find params[:id]
+    @results = @lesson.results
   end
 
   def new
-    @lesson = Lesson.new(category_id: params[:category_id], result: nil, user_id: current_user.id)
+    @lesson = Lesson.new(category_id: params[:category_id], result: 0, user_id: current_user.id,
+                          number_questions: 20)
     if @lesson.save
       words = Word.generate_random_word @lesson.category_id
       words.each do |word|
@@ -22,8 +24,6 @@ class LessonsController < ApplicationController
 
   def destroy
   end
-
-
 
   private
     def lesson_params

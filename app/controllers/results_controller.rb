@@ -8,18 +8,17 @@ class ResultsController < ApplicationController
     lesson_word = get_word lesson_words, results
     if lesson_word.present?
       @word = Word.find lesson_word
-      @options = Option.options @word.id
+      @options = @word.options
     else
-      flash[:done] = "You completed lesson!"
       redirect_to lesson_path(@lesson)
     end
   end
 
   def create
     @result = Result.new result_params
-    @result.choosen = params[:option_id]
+    @result.option_id = params[:option_id]
     if @result.save
-      redirect_to new_lesson_result_path
+      redirect_to :back
     else
       flash[:fail] = "fail"
       render "new"
